@@ -2,17 +2,18 @@ const list = require('./commands/list')
 const add = require('./commands/add')
 const done = require('./commands/done')
 
-const todo = () => {
-  const command = process.argv[2]
-  const task = process.argv[3]
-
-  if(command === 'list') {
+const todo = (command, task) => {
+  if (command === 'list') {
     list()
-  } else if(command === 'add') {
+  }
+  
+  if (command === 'add') {
     add(task)
-  } else if(command === 'done') {
+  }
+  
+  if (command === 'done') {
     done(task)
   }
 }
 
-todo()
+todo(process.argv[2], process.argv[3])
